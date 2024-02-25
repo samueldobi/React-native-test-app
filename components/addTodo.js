@@ -1,13 +1,15 @@
 import React, {useState} from 'react' ;
-import { StyleSheet, Text, TextInput, Button  } from 'react-native';
-import { View } from 'react-native-web';
+import { StyleSheet, Text, TextInput, View, Button  } from 'react-native';
 
-export default function addTodo(){ 
+export default function addTodo({ submitHandler }){ 
 
     const[text, setText] = useState('')
     const changeHandler = (val) =>{
         setText(val)
     }
+    // const addTask = () =>{
+    //     //  
+    // }
     return (
         <View>
             <TextInput 
@@ -15,10 +17,17 @@ export default function addTodo(){
             placeholder='New Todo...'
             onChangeText={changeHandler}
             />
+            <Button onPress={submitHandler} title= 'addTodo' color='coral' />
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    input:
+    input: {
+        marginBottom: 10,
+        paddingHorizontal: 8,
+        paddingVertical: 6,
+        borderBottomWidth: 1,
+        borderBottomColor: '#ddd',
+      },
 })
